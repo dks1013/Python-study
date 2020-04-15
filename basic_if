@@ -1,0 +1,50 @@
+if 3>1 :
+    print("Good job :)")
+## 기본 if문 구조
+
+a=10
+
+if a>15 :
+    print("Big")
+else :
+    print("Small")
+## 기본 if문 else사용 구조
+
+size = 24
+
+if size <= 15:
+    print("S")
+elif size < 30:
+    print("M")
+else:
+    print("L")
+## 15이하이면 S표시, 15보다 크고 30미만이면 M표시, 30이상이면 L표시 
+
+a = 20
+if a >= 10:
+    print("aa")
+    if a>= 30:
+        print("bb")
+    else:
+        print("cc")
+## 중첩 if문 
+
+a = 20
+if a>10 and a < 30:
+    print("a는 10보다 크고 30보다 작다")
+## 논리 연산자 and를 사용한 코드 
+
+a = 20
+if a == 10 or a == 20:
+    print("a는 10또는 20이다.")
+## 논리 연산자 or을 사용한 코드
+
+a = 20
+if not a==15:
+    print("a는 15이외의 숫자")
+## 논리 연산자 not을 사용한 코드
+
+a = 20
+if 10<a<30:
+    print("a는 10보다 크고 30보다 작다")
+## 파이썬 특유의 작성 방법을 사용한 코드 
