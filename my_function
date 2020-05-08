@@ -1,0 +1,100 @@
+##함수 만들기
+def sum(a, b):
+    s = a + b
+    return s
+
+total = sum(4, 7)
+print(total)
+
+##두 수 중 큰 수를 출력하는 함수
+def f_max(a,b):
+    if a>b:
+        return a
+    return b
+print(f_max(10,15))
+
+##가변길이 파라미터를 사용한 함수
+def total(*numbers):
+    tot = 0
+    for n in numbers:
+        tot += n
+    return tot
+
+t = total(1,2)
+print(t)
+t = total(1,5,2,6)
+print(t)
+
+##URL만들기
+def makeURL(**kwlist):
+    myUrl = "http://192.168.1.120/index.php?"
+    for k, v in kwlist.items():  ##kwlist.items 사용
+        myUrl += k + '-' + v + '&'
+
+    myUrl = myUrl.rstrip('&')
+    print(myUrl)
+
+makeURL(user = 'psychoria', index = '5', page = '10')
+
+##URL만들기
+def makeURL(**kwlist):  ##딕셔너리 변수를 전달 할 때 **을 추가
+    myUrl = "http://192.168.1.120/index.php?"
+    for k, v in kwlist.items():  ##kwlist.items 사용 URL을 생성할 때 키, 값
+                                 #형태로 주소 뒤에 연결할 때 사용
+        myUrl += k + '-' + v + '&'
+
+    myUrl = myUrl.rstrip('&')
+    print(myUrl)
+
+makeURL(user = 'psychoria', index = '5', page = '10')
+
+##import문으로 다른 함수 사용하기
+
+import math
+n = math.factorial(5)
+
+#factorial 함수만 import
+from math import factorial
+
+n = factorial(5) / factorial(3)
+
+#여러 함수를 import
+from math import (factorial, acos)
+n = factorial(3) + acos(1)
+
+#모든 함수를 import
+from math import*
+n = sqrt(5) + fabs(-12.5)
+
+
+##두 개의 문자열을 받아서 길이가 긴 문자열을 반환하는 함수
+def compare_string(a,b):
+    if len(a) > len(b):
+        return a
+    return b
+
+long_str = compare_string("apple", "beautiful")
+print(long_str)
+
+##369게임
+def game369(num):
+    if num%3==0:
+        return "짝!"
+    elif "3" in str(num):
+        return "짝!"
+    return num
+
+for i in range(1,11):  #게임하기
+    print(game369(i))
+    
+    
+##0~100까지 숫자로 랜덤한 리스트 만들
+def make_list(size):
+    import random
+    A=[]
+    for i in range(size):
+        A.append(random.randint(0,100))
+    return A
+
+list1=make_list(5) #함수 실행
+print(list1)
