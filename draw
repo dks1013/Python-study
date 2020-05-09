@@ -37,3 +37,82 @@ for i in range(n):
     t.lt(180-deg)   #각
 t.end_fill()
 
+#파란 별 그리기
+t.speed(1) #스피트 1로 설정
+t.pencolor('yellow') #팬 색 지정
+t.fillcolor('blue') #채우는 색 지정
+t.bgcolor('black') #배경색 지정
+t.pensize(10) #팬 굵기 지정
+
+t.begin_fill() #채우기 시작
+for i in range(5):
+    t.fd(200)
+    t.lt(144)
+
+t.end_fill() #채우기 끝
+t.ht() #터틀 숨기기
+
+
+#계란 프라이 그리기
+t.pu()
+t.goto(0,-100)
+t.pd()
+
+for i in range(4):
+    t.circle(100,180)
+    t.rt(90)
+
+t.pu()
+t.goto(-100,-100)
+t.pd()
+t.fillcolor('yellow')
+t.begin_fill()
+t.circle(100)
+t.end_fill()
+t.ht()
+
+#꽃그리기
+#꽃잎 그리기
+def draw_petal(degree, color, size):
+    t.lt(degree)
+    t.begin_fill()
+    t.color(color)
+    t.circle(size, 60)
+    t.lt(120)
+    t.circle(size, 60)
+    t.end_fill()
+
+#줄기 그리기
+def draw_stem(degree, length, color):
+    t.rt(degree)
+    t.pensize(10)
+    t.color(color)
+    t.fd(length)
+    t.bk(length)
+    t.lt(degree)
+
+#작은 원 그리그
+def draw_center(size, color):
+    t.goto(0,-size)
+    t.color(color)
+    t.begin_fill()
+    t.circle(size)
+    t.end_fill()
+
+n=5
+
+draw_stem(90, 300, 'green')
+t.pensize(2)
+for i in range(n):
+    draw_petal(0, 'red', 150)
+    t.home()
+    t.lt((360/n)*(i+1))
+    
+draw_center(15, 'yellow')
+t.pu()
+t.rt(90)
+t.fd(250)
+t.pd()
+draw_petal(80, 'yellowgreen', 200)
+draw_petal(-100, 'yellowgreen', 200)
+t.ht()
