@@ -1,0 +1,39 @@
+import turtle as t  ##모듈 이름 간단하게 사용하기
+t.shape('turtle') ##커서 모양 세팅하기
+
+#정사각형
+t.color("red") #색상
+for i in range(4):
+    t.fd(100) #길이
+    t.lt(90) #각
+    
+#정삼각형
+for i in range(3):
+    t.fd(100) #길이
+    t.lt(120) #각  
+
+#정다각형의 그리기 n : 다각형 변의 수(정이십각형)
+n=20
+deg=180-(360/n)
+
+for i in range(n):
+    t.fd(50)   #길이
+    t.lt(180-deg)   #각
+    
+
+#정다각형의 그리기 n : 다각형 변의 수(정이십각형) (결과 더 깔끔하게 만든 것)
+t.pu() #팬을 드는 명령어
+t.goto(-150,-100) #좌표찍기
+t.pd() #팬을 놓는 명령어
+
+n=20
+deg=180-(360/n)
+t.color("orange")
+t.begin_fill()  #색채우기
+
+
+for i in range(n):
+    t.fd(50)   #길이
+    t.lt(180-deg)   #각
+t.end_fill()
+
