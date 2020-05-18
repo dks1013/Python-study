@@ -1,0 +1,108 @@
+#연속(중첩) 계산기
+result = 0
+
+def add(num):
+    global result #이전에 계산한 결괏값을 유지하기 위해서 result 전역 변수를 사용
+    result += num
+    return result
+
+print(add(3))
+print(add(4))
+
+#2개의 계산기 사용
+
+result1 = 0
+result2 = 0
+
+def add1(num):
+    global result1
+    result1 += num
+    return result1
+
+def add2(num):
+    global result2
+    result2 += num
+    return result2
+
+print(add1(3))
+print(add1(4))
+print(add2(3))
+print(add2(17))
+
+#클래스
+class Human:    #클래스 생성
+    age=0
+    lastname=''
+    firstname=''
+    height=0.0
+    weight=0.0
+
+a=Human()   #객채 a생성
+a.age=30
+a.lastname='김'
+a.firstname='철수'
+a.height=180.5
+a.weight=70.2
+
+print(a.age)
+print(a.lastname+''+a.firstname)
+
+#클래스 활용
+class Human:    
+    age=0
+    lastname=''
+    firstname=''
+    height=0.0
+    weight=0.0
+
+a=Human()   
+a.age=30
+a.lastname='김'
+a.firstname='철수'
+a.height=180.5
+a.weight=70.2
+
+yh=Human()   
+yh.age=35
+yh.lastname='이'
+yh.firstname='영희'
+yh.height=174.2
+yh.weight=65.2
+
+if(yh.age>=35 and yh.firstname=='영희'):
+    print('선택된 사람 -> ' + yh.lastname+''+yh.firstname)
+    
+#심화
+class Human:    
+    age=0
+    lastname=''
+    firstname=''
+    height=0.0
+    weight=0.0
+
+    def get_BMI(self):  #BMI계산 함수 정의, 첫번째 인수 "self"
+        return (self.weight) / (self.height ** 2)
+
+cs=Human()   
+cs.age=30
+cs.lastname='김'
+cs.firstname='철수'
+cs.height=1.7
+cs.weight=68
+
+print(cs.age)
+print(cs.lastname+''+cs.firstname)
+bmi = cs.get_BMI()
+print(bmi)
+
+yh=Human()   
+yh.age=30
+yh.lastname='김'
+yh.firstname='철수'
+yh.height=1.7
+yh.weight=68
+
+print(yh.age)
+print(yh.lastname+''+yh.firstname)
+bmi = yh.get_BMI()
+print(bmi)
