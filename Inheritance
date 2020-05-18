@@ -1,0 +1,21 @@
+#상속
+class A:
+    name='Class A'
+
+class B(A): # Class A 를 상속
+    pass
+    
+b=B()
+print(b.name)
+
+#오버라이드
+class A:
+    def hello(self):
+        print('Class A says Hello')
+
+class B(A):
+    def hello(self):
+        print('Class B says Hello')
+
+b=B()
+b.hello()
