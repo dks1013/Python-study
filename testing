@@ -1,0 +1,78 @@
+#테스트 프로그래밍
+import unittest
+
+#plus ftn
+def Add(a,b):
+    return a+b
+
+class TestAdd(unittest.TestCase):
+    def test_add(self):
+        self.assertEqual(10, Add(8,2))
+
+if __name__=="__main__":
+    unittest.main()
+    
+>>> 'sky'.upper()
+'SKY'
+>>> 'sky'.lower()
+'sky'
+>>> 'Apple'.upper()
+'APPLE'
+>>> 'Apple'.isupper()
+False
+>>> 'APPLY'.isupper()
+True
+>>> 'apply'.islower()
+True
+>>> 'Hi class'.split()
+['Hi', 'class']
+>>> 'Hi_class'.split()
+['Hi_class']
+
+import unittest
+
+class TestStringMethod(unittest.TestCase):
+    def test_upper(self):
+        self.seertEqual('ALLPE', 'apple'.upper())
+
+    def test_lower(self):
+        self.assertEqual('apple', 'Apple'.lower())
+
+    def test_isupper(self):
+        self.assertTrue('SKY'.isupper())
+        self.assertFules('SKY'.isupper())
+
+    def test_islower(self):
+        self.assertTrue('sky'.islower())
+        self.assertFules('Sky'.islower())
+
+    def test_split(self):
+        s='Hi Class'
+        self.assertEqual(s.split(), ['Hi','Class'])
+        with self.assertRaises(TypeError):
+            s.split(2)
+
+if __name__=="__main__":
+    unittest.main()
+            
+#FizzBuzz
+import unittest
+
+def fizzbuzz(a):
+    if a%15==0:
+        return 'FizzBuzz'
+    elif a%3==0:
+        return 'Fizz'
+    elif a%5==0:
+        return 'Buzz'
+    else:
+        return a
+
+class TestFizzBuzz(unittest.TestCase):
+    def test_fizzbuzz(self):
+        self.assertEqual('Fizz', fizzbuzz(3))
+        self.assertEqual('Buzz', fizzbuzz(5))
+        self.assertEqual('FizzBuzz', fizzbuzz(15))
+        self.assertEqual(7, fizzbuzz(7))
+
+unittest.main()
