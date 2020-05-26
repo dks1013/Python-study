@@ -1,0 +1,104 @@
+#명령 프롬프트
+cd C:\Users\user\AppData\Local\Programs\Python\Python38-32\Scripts  
+pip install requests
+pip install beautifulsoup4
+#설치
+
+#파이썬 셸에서 설치 확인
+>>> import requests
+>>> requests
+<module 'requests' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python38-32\\lib\\site-packages\\requests\\__init__.py'>
+>>> import bs4
+>>> bs4
+<module 'bs4' from 'C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python38-32\\lib\\site-packages\\bs4\\__init__.py'>
+
+#네이버 실시간 뉴스 스크래핑 하기 
+import requests
+from bs4 import BeautifulSoup
+
+resp = requests.get('https://news.naver.com/main/main.nhn?mode=LSD&mid=shm&sid1=101')
+soup = BeautifulSoup(resp.text, 'html.parser')
+
+titles = soup.select('.cluster_head_topic .cluster_head_sub_topic')
+
+for title in titles:
+    print(title.get_text())
+    
+#네이버 영화 평점 순 스크래핑 하기 
+import requests
+from bs4 import BeautifulSoup
+
+resp = requests.get('https://movie.naver.com/movie/sdb/rank/rmovie.nhn?sel=cur&date=20200525')
+soup = BeautifulSoup(resp.text, 'html.parser')
+
+titles = soup.select('.title .tit5')
+
+cnt=0
+for title in titles:
+    print(title.get_text(), end="")
+    cnt=cnt+1
+    if(cnt==10):
+        break
+        
+#다음 홈페이지에 접속해서 HTML문서를 가져와 화면에 출력 하기
+import requests
+
+resp = requests.get('https://daum.net')
+
+if(resp.status_code == requests.codes.ok):
+    html = resp.text
+    print(html)
+    
+#네이버 금융사이트에서 주요뉴스 발췌
+import requests
+from bs4 import BeautifulSoup
+
+resp = requests.get('https://finance.naver.com/news/mainnews.nhn')
+soup = BeautifulSoup(resp.text, 'html.parser')
+titles = soup.select('.articleSubject') #타이틀을 가지고 있는 클래스
+
+for title in titles:
+    print(title.get_text())
+    
+#네이버 영화 사이트에서 영화 조회순 제목 발췌
+import requests
+from bs4 import BeautifulSoup
+
+resp = requests.get('https://movie.naver.com/movie/sdb/rank/rmovie.nhn')
+soup = BeautifulSoup(resp.text, 'html.parser')
+titles = soup.select('.tit3')   #타이틀을 가지고 있는 클래스 명
+
+for title in titles:
+    print(title.get_text())
+    
+#네이버 영화 사이트에서 영화 조회순 제목 발췌 (출력값 간격 조절)
+import requests
+from bs4 import BeautifulSoup
+
+resp = requests.get('https://movie.naver.com/movie/sdb/rank/rmovie.nhn')
+soup = BeautifulSoup(resp.text, 'html.parser')
+titles = soup.select('.tit3')   #타이틀을 가지고 있는 클래스 명
+
+title_list=[]
+for title in titles:
+    title_list.append(title.get_text())
+
+for i in title_list:
+    tmp=i.replace("\n","")
+    print(tmp)
+    
+#네이버 영화 사이트에서 영화 조회순 제목 발췌 (출력값 순위 매기기)
+import requests
+from bs4 import BeautifulSoup
+
+resp = requests.get('https://movie.naver.com/movie/sdb/rank/rmovie.nhn')
+soup = BeautifulSoup(resp.text, 'html.parser')
+titles = soup.select('.tit3')   #타이틀을 가지고 있는 클래스 명
+
+title_list=[]
+for title in titles:
+    title_list.append(title.get_text())
+
+for i in range(len(title_list)):
+    tmp=title_list[i].replace("\n","")
+    print("[%2d]위 : %s"%(i+1,tmp))
