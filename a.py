@@ -10,6 +10,7 @@ def random_pop(n):
         else:
             print(ran)
             list_ran.append(ran)
+            i=i+1
             
 #함수 실행
 list1 = random_pop(int(input("n값을 입력하시오 : ")))
