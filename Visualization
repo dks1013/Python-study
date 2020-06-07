@@ -1,0 +1,244 @@
+#선그래프 출력
+>>> import matplotlib.pyplot as plt
+>>> a = [x for x in range(0,11)]
+>>> b = [y for y in range(0,11)]
+>>> plt.plot(a,b)
+[<matplotlib.lines.Line2D object at 0x0105AE80>]
+>>> plt.show()
+
+#배열 연산
+>>> import numpy as np
+>>> A=np.array([2,-3,5,7,-1])
+>>> A
+array([ 2, -3,  5,  7, -1])
+>>> A*2
+array([ 4, -6, 10, 14, -2])
+>>> A**3
+array([  8, -27, 125, 343,  -1], dtype=int32)
+>>> B=np.abs(A)
+>>> B
+array([2, 3, 5, 7, 1])
+>>> np.sqrt(B)
+array([1.41421356, 1.73205081, 2.23606798, 2.64575131, 1.        ])
+>>> np.square(B)
+array([ 4,  9, 25, 49,  1], dtype=int32)
+>>> np.sum(A)
+10
+>>> np.sin(A)
+array([ 0.90929743, -0.14112001, -0.95892427,  0.6569866 , -0.84147098])
+
+>>> H=np.arange(1,6)
+>>> H
+array([1, 2, 3, 4, 5])
+>>> np.add(A,H)
+array([ 3, -1,  8, 11,  4])
+>>> A
+array([ 2, -3,  5,  7, -1])
+>>> H
+array([1, 2, 3, 4, 5])
+>>> np.multiply(A,H)
+array([ 2, -6, 15, 28, -5])
+>>> np.mod(A,H)
+array([0, 1, 2, 3, 4], dtype=int32)
+>>> np.var(A)
+13.6
+>>> np.max(A)
+7
+
+#그래프 그리기
+from matplotlib import pyplot as plt
+import numpy as np
+
+x=np.arange(1,11)
+y=x*5
+print(x)
+print(y)
+plt.plot(x,y)
+plt.show()
+
+#선 색을 빨간색으로 그리기
+from matplotlib import pyplot as plt
+import numpy as np
+
+x=np.arange(1,11)
+y=x*5
+print(x)
+print(y)
+plt.plot(x,y,'r')
+plt.show()
+
+#선 색을 빨간색으로 하고 점선으로 그리기
+from matplotlib import pyplot as plt
+import numpy as np
+
+x=np.arange(1,11)
+y=x*5
+print(x)
+print(y)
+plt.plot(x,y,'r--')
+plt.show()
+
+#각각의 모양에 x선 살짝 넣기
+from matplotlib import pyplot as plt
+import numpy as np
+
+x=np.arange(1,11)
+y=x*5
+print(x)
+print(y)
+plt.plot(x,y,'r-x')
+plt.show()
+
+#점만 넣은 그래프
+from matplotlib import pyplot as plt
+import numpy as np
+
+x=np.arange(1,11)
+y=x*5
+print(x)
+print(y)
+plt.plot(x,y,'ro')
+plt.show()
+
+#점을 작게 만든 것
+from matplotlib import pyplot as plt
+import numpy as np
+
+x=np.arange(1,11)
+y=x*5
+print(x)
+print(y)
+plt.plot(x,y,'r.')
+plt.show()
+
+#점과 선 둘다 보이게 만든 그래프
+from matplotlib import pyplot as plt
+import numpy as np
+
+x=np.arange(1,11)
+y=x*5
+print(x)
+print(y)
+plt.plot(x,y,'r-.')
+plt.show()
+
+#x모양으로 하늘색 그래프 출력
+from matplotlib import pyplot as plt
+import numpy as np
+
+x=np.arange(1,11)
+y=x*5
+print(x)
+print(y)
+plt.plot(x,y,'cx')
+plt.show()
+
+#목록,제목 옵션 붙이기
+from matplotlib import pyplot as plt
+import numpy as np
+
+x=np.arange(1,11)
+y=x*5
+print(x)
+print(y)
+plt.plot(x,y)
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('graph : y=5x')
+plt.show()
+
+#스케일 조정
+from matplotlib import pyplot as plt
+import numpy as np
+
+x=np.arange(1,11)
+y=x*0.5
+print(x)
+print(y)
+plt.xlim(2,3)
+plt.ylim(0,2)
+plt.plot(x,y)
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('graph : y=5x')
+plt.show()
+
+from matplotlib import pyplot as plt
+import numpy as np
+
+x=np.arange(1,10,0.1)
+y=np.sin(x)
+plt.plot(x,y)
+plt.ylim(-1.5,1.5)
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('graph : y=5x')
+plt.show()
+
+#여러개의 그래프 출력
+from matplotlib import pyplot as plt
+import numpy as np
+
+x=np.arange(1,10,0.1)
+y1=np.sqrt(x)
+y2=np.sin(x)
+y3=0.2*x
+plt.plot(x,y1,'g--', label='sqrt(x)')
+plt.plot(x,y2, label='sin(x)')
+plt.plot(x,y3,'m',label='0.2*x')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('math function graph')
+plt.legend(loc='upper right')
+plt.show()
+
+#서브플롯 이용해서 여러개의 그래프 출력
+from matplotlib import pyplot as plt
+import numpy as np
+
+x=np.arange(1,10,0.1)
+y1=np.sqrt(x)
+y2=np.sin(x)
+y3=0.2*x
+y4=np.cos(x)
+plt.title('math function graph')
+
+##sin graph
+plt.subplot(2,2,1)
+plt.plot(x,y2, label='sin(x)')
+plt.legend(loc='upper right')
+plt.xlabel('x')
+plt.ylabel('y')
+
+##cos graph
+plt.subplot(2,2,2)
+plt.plot(x,y4,label='cos(x)')
+plt.legend(loc='upper right')
+plt.xlabel('x')
+plt.ylabel('y')
+
+##sqrt(x) graph
+plt.subplot(2,2,3)
+plt.plot(x,y1,'g',label='sqrt(x)')
+plt.legend(loc='upper right')
+plt.xlabel('x')
+plt.ylabel('y')
+
+##y=0.2*x graph
+plt.subplot(2,2,4)
+plt.plot(x,y3,'m',label='0.2*x')
+plt.legend(loc='upper right')
+plt.xlabel('x')
+plt.ylabel('y')
+
+plt.show()
+
+#막대 그래프 출력
+from matplotlib import pyplot as plt
+import numpy as np
+
+x=np.arange(1,10)
+y=[6,8,12,3,7,5,4,9,2]
+plt.bar(x,y)
+plt.axis([0,10,0,15])
+plt.show()
